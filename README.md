@@ -9,3 +9,6 @@
 
 ### pyinstaller.md 
 - pyinstaller를 이용하여 파이썬 설치 없이 사용할 수 있도록 배포하는 법을 설명(예정)
+
+#### Thanks for 일코(https://martinii.fun/)
+- 일상의 코딩님 글과 강의를 참고하여 제작되었습니다.
