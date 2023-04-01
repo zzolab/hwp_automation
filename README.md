@@ -3,7 +3,7 @@
 ### checker.py
 - 문서 내 통일되지 않은 폰트를 찾아 확인함
 - 특정 폰트 외 다른 폰트를 모두 붉은 색으로 처리함
-- [폰트의 종류](chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://www.hancom.com/upload/HC/20161015/20161015191158328001.pdf)
+- [폰트의 종류](https://www.hancom.com/upload/HC/20161015/20161015191158328001.pdf)
 
 ### space_letter.py
 - 글 작성중 단어가 줄을 넘어가는 경우, 글자의 자간을 자동으로 조정함.
