@@ -35,12 +35,16 @@ def change_letter_color(face, r, g, b):
     '''
     글꼴을 하나 선택 후 
     해당 글꼴의 색을 모두 rgb에 맞춰서 바꿈
+    한양신명조는 한글 전용폰트(HTF) 이므로 hwp.FontType("HTF")을 사용
+    대부분 사실 hwp.FontType("TTF")
     '''
     hwp.HAction.GetDefault("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
     hwp.HParameterSet.HFindReplace.Direction = hwp.FindDir("AllDoc")
-    hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("HFT")
+#     hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("TTF")
+    hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("HTF")
     hwp.HParameterSet.HFindReplace.FindCharShape.FaceNameHangul = face
-    hwp.HParameterSet.HFindReplace.ReplaceCharShape.FontTypeHangul = hwp.FontType("HFT")
+#     hwp.HParameterSet.HFindReplace.ReplaceCharShape.FontTypeHangul = hwp.FontType("TTF")
+    hwp.HParameterSet.HFindReplace.ReplaceCharShape.FontTypeHangul = hwp.FontType("HTF")
     hwp.HParameterSet.HFindReplace.ReplaceCharShape.TextColor = hwp.RGBColor(r, g, b)
     hwp.HParameterSet.HFindReplace.ReplaceMode = 1
     hwp.HParameterSet.HFindReplace.IgnoreMessage = 1
