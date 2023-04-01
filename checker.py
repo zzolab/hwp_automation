@@ -32,6 +32,10 @@ def select_file():
     return hwpx
 
 def change_letter_color(face, r, g, b):
+    '''
+    글꼴을 하나 선택 후 
+    해당 글꼴의 색을 모두 rgb에 맞춰서 바꿈
+    '''
     hwp.HAction.GetDefault("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
     hwp.HParameterSet.HFindReplace.Direction = hwp.FindDir("AllDoc")
     hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("HFT")
@@ -44,6 +48,10 @@ def change_letter_color(face, r, g, b):
     hwp.HAction.Execute("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
 
 def change_letter_color_all(r, g, b):
+    '''
+    한글의 버그를 이용(찾는 글꼴이 없으면 모든 글꼴을 선택함)
+    모든 글자의 색을 모두 rgb에 맞춰서  
+    '''
     hwp.HAction.GetDefault("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
     hwp.HParameterSet.HFindReplace.Direction = hwp.FindDir("AllDoc")
     hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("TTF")
