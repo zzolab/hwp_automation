@@ -8,6 +8,11 @@
 ### space_letter.py
 - 글 작성중 단어가 줄을 넘어가는 경우, 글자의 자간을 자동으로 조정함.
 
+## ascending.py
+- 논문 등의 참고 문헌의 순서가 섞여있는 경우 오름차순으로 정렬
+- 한글, 영어 순서로 정렬하도록 제작
+- 중간에 separate_list 함수는 chatgpt를 이용하여 제작
+
 ### pyinstaller.md 
 - pyinstaller를 이용하여 파이썬 설치 없이 사용할 수 있도록 배포하는 법을 설명(예정)
 
