@@ -8,12 +8,12 @@
 ### space_letter.py
 - 글 작성중 단어가 줄을 넘어가는 경우, 글자의 자간을 자동으로 조정함.
 
-## ascending.py
+### ascending.py
 - 논문 등의 참고 문헌의 순서가 섞여있는 경우 오름차순으로 정렬
 - 한글, 영어 순서로 정렬하도록 제작
 - 중간에 separate_list 함수는 chatgpt를 이용하여 제작
 
-## word_ascending.py
+### word_ascending.py
 - ascending.py의 MS Word버전
 
 ### pyinstaller.md 
