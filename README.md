@@ -13,6 +13,9 @@
 - 한글, 영어 순서로 정렬하도록 제작
 - 중간에 separate_list 함수는 chatgpt를 이용하여 제작
 
+## word_ascending.py
+- ascending.py의 MS Word버전
+
 ### pyinstaller.md 
 - pyinstaller를 이용하여 파이썬 설치 없이 사용할 수 있도록 배포하는 법을 설명(예정)
 
