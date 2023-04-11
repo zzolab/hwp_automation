@@ -16,6 +16,10 @@
 ### word_ascending.py
 - ascending.py의 MS Word버전
 
+### table_extractor.py
+- 같은 형식을 가진 여러 문서에서 표의 위치에 대한 내용을 추출하여 모아주는 함수
+- 현재 함수의 포멧은 하나의 표로 구성된 문서, 파일명(이름).hwp 파일에 대해 (이름)과 표의 특정 위치에 있는 내용을 뽑아서 통합.hwp에 저장함.
+
 ### pyinstaller.md 
 - pyinstaller를 이용하여 파이썬 설치 없이 사용할 수 있도록 배포하는 법을 설명(예정)
 
