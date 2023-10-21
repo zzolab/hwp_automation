@@ -93,9 +93,6 @@ def check_letter(face, r, g, b):
 if __name__ == '__main__':
 
     hwp = start_hwp(visible=True, open_file=select_file())
-
-    # 모든 글자 빨갛게 일괄변경
-    change_letter_color_all(255, 0, 0)
-        
-    # "한양신명조" 서체만 검게
+       
+    # "한양신명조" 서체만 검게 나머지는 빨간색
     check_letter("한양신명조", 0, 0, 0)
