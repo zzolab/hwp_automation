@@ -51,21 +51,44 @@ def change_letter_color(face, r, g, b):
     hwp.HParameterSet.HFindReplace.FindType = 1
     hwp.HAction.Execute("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
 
-def change_letter_color_all(r, g, b):
-    '''
-    한글의 버그를 이용(찾는 글꼴이 없으면 모든 글꼴을 선택함)
-    모든 글자의 색을 모두 rgb에 맞춰서  
-    '''
-    hwp.HAction.GetDefault("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
-    hwp.HParameterSet.HFindReplace.Direction = hwp.FindDir("AllDoc")
-    hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("TTF")
-    hwp.HParameterSet.HFindReplace.FindCharShape.FaceNameHangul = "모두"
-    hwp.HParameterSet.HFindReplace.ReplaceCharShape.FontTypeHangul = hwp.FontType("TTF")
-    hwp.HParameterSet.HFindReplace.ReplaceCharShape.TextColor = hwp.RGBColor(r, g, b)
-    hwp.HParameterSet.HFindReplace.ReplaceMode = 1
-    hwp.HParameterSet.HFindReplace.IgnoreMessage = 1
-    hwp.HParameterSet.HFindReplace.FindType = 1
-    hwp.HAction.Execute("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
+# def change_letter_color_all(r, g, b):
+#     '''
+#     한글의 버그를 이용(찾는 글꼴이 없으면 모든 글꼴을 선택함)
+#     모든 글자의 색을 모두 rgb에 맞춰서  
+#     '''
+#     hwp.HAction.GetDefault("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
+#     hwp.HParameterSet.HFindReplace.Direction = hwp.FindDir("AllDoc")
+#     hwp.HParameterSet.HFindReplace.FindCharShape.FontTypeHangul = hwp.FontType("TTF")
+#     hwp.HParameterSet.HFindReplace.FindCharShape.FaceNameHangul = "모두"
+#     hwp.HParameterSet.HFindReplace.ReplaceCharShape.FontTypeHangul = hwp.FontType("TTF")
+#     hwp.HParameterSet.HFindReplace.ReplaceCharShape.TextColor = hwp.RGBColor(r, g, b)
+#     hwp.HParameterSet.HFindReplace.ReplaceMode = 1
+#     hwp.HParameterSet.HFindReplace.IgnoreMessage = 1
+#     hwp.HParameterSet.HFindReplace.FindType = 1
+#     hwp.HAction.Execute("AllReplace", hwp.HParameterSet.HFindReplace.HSet)
+
+def check_letter(face, r, g, b):
+    hwp.SetPos(0, 0, 0)
+    hwp.Run("MoveSelDocBegin")
+    hwp.InitScan()
+    hwp.Run("MoveSelDocEnd")
+    hwp.Run("CharShapeTextColorRed")
+    change_letter_color(face, r, g, b)
+    area = 2
+    while True:
+        hwp.SetPos(area, 0, 0)
+        if hwp.GetPos()[0] == 0:
+            break
+        while True:
+            hwp.Run("MoveSelDocBegin")
+            hwp.InitScan()
+            hwp.Run("MoveSelDocEnd")
+            hwp.Run("CharShapeTextColorRed")
+            change_letter_color(face, 0, 0, 0)
+            area += 1
+            hwp.SetPos(area, 0, 0)
+            if hwp.GetPos()[0] == 0:
+                break
 
 if __name__ == '__main__':
 
@@ -75,4 +98,4 @@ if __name__ == '__main__':
     change_letter_color_all(255, 0, 0)
         
     # "한양신명조" 서체만 검게
-    change_letter_color("한양신명조", 0, 0, 0)
+    check_letter("한양신명조", 0, 0, 0)
