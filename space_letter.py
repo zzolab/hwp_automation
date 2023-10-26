@@ -56,6 +56,20 @@ def adjustment():
             hwp.Run("Cancel")
             break
         hwp.Run("MoveWordBegin")
+
+        # 자간 조정된 마지막 단어들을 표기하는 기능 추가
+        # 필요에 따라서 주석처리하여 사용
+        # 기능 1은 기울임과 밑줄 추가 (현재 주석 처리)
+        # 기능 2는 빨간 형광펜 처리(필요에 따라 rgb 컬러 변경 가능)
+        hwp.Run("MoveSelWordEnd")
+#         charshape.Italic = True  # 이탤릭
+#         charshape.UnderlineType = 1  # 밑줄
+        hwp.HAction.GetDefault("MarkPenShape", hwp.HParameterSet.HMarkpenShape.HSet)
+        hwp.HParameterSet.HMarkpenShape.Color = hwp.RGBColor(255, 0, 0)
+        hwp.HAction.Execute("MarkPenShape", hwp.HParameterSet.HMarkpenShape.HSet)
+        hwp.HAction.Run("Cancel")
+        hwp.Run("MoveWordBegin")
+        
         hwp.Run("MoveLineEnd")
         hwp.Run("MoveSelLineBegin")
         if front_length >= back_length:  # 앞이 길면
